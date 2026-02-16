@@ -41,7 +41,7 @@ spec:
       value: pipelines/fbc-builder.yaml
     resolver: git
   taskRunTemplate:
-    serviceAccountName: build-pipeline-fbc-v4-17
+    serviceAccountName: build-pipeline-rhtas-fbc-v4-17
   workspaces:
   - name: git-auth
     secret:
