@@ -1,4 +1,4 @@
-name: Update FBC Catalogs
+name: Create new release items for FBC catalogs
 
 on:
   workflow_dispatch:
@@ -34,6 +34,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Install OPM
+        uses: ./.github/actions/install-opm
 
       - name: Login to Red Hat Registry
         uses: docker/login-action@v3
