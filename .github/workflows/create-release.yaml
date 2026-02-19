@@ -49,10 +49,9 @@ jobs:
             echo "Branch $TARGET_BRANCH exists. Checking out and synchronizing..."
             git checkout "$TARGET_BRANCH"
             
-            echo "Rebasing onto origin/main..."
-            git rebase origin/main || {
-              echo "Error: Rebase onto main failed. Please resolve conflicts manually."
-              git rebase --abort
+            echo "Merging origin/main into $TARGET_BRANCH..."
+            git merge origin/main --no-edit || {
+              echo "Error: Merge failed due to conflicts. Please resolve manually."
               exit 1
             }
           else
