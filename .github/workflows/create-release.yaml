@@ -34,6 +34,7 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+<<<<<<< release_gh_action
         with:
           fetch-depth: 0
 
@@ -59,6 +60,8 @@ jobs:
             echo "Branch $TARGET_BRANCH does not exist. Creating it from main..."
             git checkout -b "$TARGET_BRANCH" origin/main
           fi
+=======
+>>>>>>> main
 
       - name: Install OPM
         uses: ./.github/actions/install-opm
@@ -107,13 +110,25 @@ jobs:
         env:
           TARGET_BRANCH: ${{ github.event.inputs.target_branch }}
         run: |
+<<<<<<< release_gh_action
+=======
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git checkout -B "$TARGET_BRANCH"
+>>>>>>> main
           git add .
           
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
+<<<<<<< release_gh_action
             git commit -m "chore: update FBC catalogs for ${{ github.event.inputs.bundle_name }}"
             
             # A standard push will automatically fail with an error if it is not a fast-forward
             git push origin "$TARGET_BRANCH"
+=======
+            git commit -m "chore: update FBC catalogs for $BUNDLE_NAME"
+            git push -u origin "$TARGET_BRANCH"
+>>>>>>> main
           fi
