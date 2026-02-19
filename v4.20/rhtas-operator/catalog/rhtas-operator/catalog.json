@@ -5787,7 +5787,7 @@
                 "schema": "olm.bundle",
                 "name": "rhtas-operator.v1.1.2"
             },
-            "message": "rhtas-operator.v1.1.2 is deprecated. Please consider updating for continued support."
+            "message": "rhtas-operator.v1.1.2 is deprecated. Please consider updating for continued support. test"
         }
     ]
 }
